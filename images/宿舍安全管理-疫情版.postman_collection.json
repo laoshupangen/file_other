@@ -1,0 +1,5398 @@
+{
+	"info": {
+		"_postman_id": "451608c2-81c3-41ef-bf32-0ec741695ca7",
+		"name": "宿舍安全管理-疫情版",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "用户管理",
+			"item": [
+				{
+					"name": "用户管理 -  通过用户ID 查询用户",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "2_45b0220e12b9aee053e0f9ea9355e1b1_pc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\":2\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/user/queryById",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"user",
+								"queryById"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "用户管理-  查询所有用户",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "2_ea8f938b27e42f51f882229d070916fc_mobile",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"organId\":\"\",\"page\":1,\"rows\":10,\"keyWord\":\"360421199311144017\"}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/user/queryAll",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"user",
+								"queryAll"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "学生导入 - 上传Excel文件",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "2_3090a4f997b403e6c0b07f24f8ff3d65_mobile",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "userType",
+									"value": "teacher",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": ""
+								}
+							]
+						},
+						"url": {
+							"raw": "{{dormSafety}}/user/UploadUserEXCEL",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"user",
+								"UploadUserEXCEL"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "删除人员",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "2_bb1f59fd9bbae79b45b1cc9e5d0af7a3_mobile",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\":561\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/user/delete",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"user",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "人员管理 - 修改人员",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "2_bb1f59fd9bbae79b45b1cc9e5d0af7a3_mobile",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"roleId\":5,\r\n    \"account\":\"Refuse789\",\r\n    \"name\":\"Refuse2233\",\r\n    \"phone\":\"18279588351\",\r\n    \"photo\":\"C:/home/hw/picture/photo/2020-01-09/b30f77264545fc2c1a5309cf0b536626.jpg\",\r\n    \"gender\":1,\r\n    \"idCard\":\"360421199311115022\",\r\n    \"organId\":255,\r\n    \"organName\":\"学生机构/软件学院/2018/18011299999\",\r\n    \"loginFlag\":1,\r\n    \"id\":561\r\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/user/updateUser",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"user",
+								"updateUser"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "人员管理 - 上传文件压缩包",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "2_3090a4f997b403e6c0b07f24f8ff3d65_mobile",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": ""
+								}
+							]
+						},
+						"url": {
+							"raw": "{{dormSafety}}/user/UploadUserZIP",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"user",
+								"UploadUserZIP"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "用户管理 - 修改用户",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "2_28e27229eec1e2c536092db2f4b9ffa4_pc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"id\":3,\"roleId\":1,\"account\":\"caih\",\"name\":\"caihui\",\"phone\":\"18279286393\",\"photo\":\"C:/home/hw/picture/photo/2020-01-09/b30f77264545fc2c1a5309cf0b536626.jpg\",\"gender\":1,\"idCard\":\"360421199311141458\",\"organId\":4,\"organName\":\"学生机构/软件学院\"}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/user/updateUser",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"user",
+								"updateUser"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "用户管理 - 新增用户",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "2_bb1f59fd9bbae79b45b1cc9e5d0af7a3_mobile",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"roleId\":5,\r\n    \"account\":\"Refuse789\",\r\n    \"name\":\"Refuse789\",\r\n    \"phone\":\"18279588351\",\r\n    \"photo\":\"C:/home/hw/picture/photo/2020-01-09/b30f77264545fc2c1a5309cf0b536626.jpg\",\r\n    \"gender\":1,\r\n    \"idCard\":\"360421199311115022\",\r\n    \"organId\":255,\r\n    \"organName\":\"学生机构/软件学院/2018/18011299999\",\r\n    \"loginFlag\":1\r\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/user/addUser",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"user",
+								"addUser"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "用户管理 - 重置密码（未登录，通过身份证号码重置密码）",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "2_1e7b424d3376968a9402d05b154592ea_mobile",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"idCard\": \"360421199311144017\"\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/user/resetPassByUserSelf",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"user",
+								"resetPassByUserSelf"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "菜单管理",
+			"item": [
+				{
+					"name": "菜单管理--新增菜单",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Menu1\",\n  \"parentId\": 1,\n  \"menuIcon\": \"菜单图标\",\n  \"menuUrl\": \"菜单URL\",\n  \"sort\": 1\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/menu/addMenu",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"menu",
+								"addMenu"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "菜单管理-修改菜单",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "2_dd296281e935c98d63fed1129efeb85e",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\":7,\n  \"name\": \"33\",\n  \"parentId\": 1,\n  \"menuIcon\": \"菜单图标1\",\n  \"menuUrl\": \"菜单URL1\",\n  \"sort\": 10\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/menu/uptMenu",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"menu",
+								"uptMenu"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "菜单管理-删除菜单",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "1_4026dd4b8454a3f324fab653f2a8bee2",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\":7\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/menu/delMenu",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"menu",
+								"delMenu"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "菜单管理-查询菜单",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "2_879d7cf379c952a734b94876381320a7_pc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/menu/queryMenu",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"menu",
+								"queryMenu"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "菜单管理-通过菜单取按钮（加功能权限）",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "token",
+								"type": "text",
+								"value": "1_377987eb9c3dc05ee612c343a38bac06"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\":6\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/menu/buttonByMenu",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"menu",
+								"buttonByMenu"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "菜单管理-通过角色查询菜单",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "2_7851d593b842a659c01285369400a254",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\n}"
+						},
+						"url": {
+							"raw": "{{dorm}}/role/queryRoleMenu",
+							"host": [
+								"{{dorm}}"
+							],
+							"path": [
+								"role",
+								"queryRoleMenu"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "菜单管理-新增按钮",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "2_d9de842adc067db9cf022e69552348a9_pc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"buttonName\":\"设置考勤属性\",\n\t\"buttonDesc\":\"设置考勤属性\",\n\t\"buttonIcon\":\"icon\",\n\t\"buttonCode\":\"1001\",\n\t\"sort\": 1\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/button/addButon",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"button",
+								"addButon"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "按钮管理-删除按钮",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "2_4d999d404b37be87b7f16564a3164af1",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"buttonId\":5\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/button/delButton",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"button",
+								"delButton"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "菜单绑定按钮",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "2_55b819abd2d1886ee80e9206d076cfe8_pc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":62,\r\n    \"buttonIds\":[\r\n        13,\r\n        15,\r\n        1\r\n    ]\r\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/menu/menuBindButtons",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"menu",
+								"menuBindButtons"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "查询菜单下，角色绑定的按钮",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "2_c8463b36dc7a5efd53cbaea7cc9bda3b_pc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\":62\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/menu/buttonByRoleMenu",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"menu",
+								"buttonByRoleMenu"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "登录相关",
+			"item": [
+				{
+					"name": "登录",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"account\":\"refuse\",\r\n\t\"password\":\"123456\"\r\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/account/login",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"account",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "登录管理-登录成功之后查看信息",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "2_95a7efb0de5e69076d35218bc72442e7_pc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{dormSafety}}/account/infoByUser",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"account",
+								"infoByUser"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "登陆注销",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "1_983a72b16c43d78f5291ae3d511b6fb1",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{dorm}}/account/logout",
+							"host": [
+								"{{dorm}}"
+							],
+							"path": [
+								"account",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "机构管理",
+			"item": [
+				{
+					"name": "机构管理-查询机构（加数据权限）",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "1_34276f603f14a84cec3c87552cdaab05",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\":1\n}"
+						},
+						"url": {
+							"raw": "{{dorm}}/organ/getOrgans",
+							"host": [
+								"{{dorm}}"
+							],
+							"path": [
+								"organ",
+								"getOrgans"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "机构管理-新增机构",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "2_8856d86be75af0f0f0fee2ac721ff158_pc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"pid\":7,\r\n    \"orgName\":\"20182888899\",\r\n    \"orgCode\":\"\",\r\n    \"description\":\"\"\r\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/organ/add",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"organ",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "机构管理-修改机构",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "2_07f63a69e5e37a454c1f7c7906e333bb_mobile",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"id\":255,\"pid\":7,\"orgName\":\"18011299999\",\"sort\":0}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/organ/update",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"organ",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "机构管理-删除机构",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "1_7f9ec7edb4361f48828542948f10fba5",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\":4\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/organ/delete",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"organ",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "机构管理-查询子机构",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "1_7f9ec7edb4361f48828542948f10fba5",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"pid\":1\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/organ/organByPid",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"organ",
+								"organByPid"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "机构管理-查看组织机构负责人",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "2_f42f6e79d44adff93571e9fc2c8691a7",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\":2\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/organ/getLeaderByOrgan",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"organ",
+								"getLeaderByOrgan"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "机构管理-设置组织机构负责人",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "2_209ae682f1c1876ca737a661a1f8f169_pc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userIds\":[2],\n\t\"organIds\":[1]\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/user/userBindOrgan",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"user",
+								"userBindOrgan"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "机构管理 - 撤销机构负责人",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "2_a799b93cd6e1a284d64765cde43849ff_pc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userIds\":[2],\n\t\"organIds\":[2]\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/user/surveyUserBindOrgan",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"user",
+								"surveyUserBindOrgan"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "机构管理 - 导入组织机构",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "2_723e4d87d205eb4fdb1139155779502f_mobile",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"excelPath\":\"c:/组织机构模板.xlsx\"\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/organ/importOrgans",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"organ",
+								"importOrgans"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "角色管理",
+			"item": [
+				{
+					"name": "角色管理--查询角色",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "1_869957c9e6e201cf83d5fa30c185624c",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\":1\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/role/queryAll",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"role",
+								"queryAll"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "角色管理-新增角色",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "1_869957c9e6e201cf83d5fa30c185624c",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\":\"测试角11色1\",\n\t\"code\":\"3333\",\n\t\"description\":\"角色描述\"\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/role/add",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"role",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "角色管理-修改角色",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "1_869957c9e6e201cf83d5fa30c185624c",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\":5,\n\t\"name\":\"测试54564角色\",\n\t\"code\":\"3333\",\n\t\"description\":\"角色描述\"\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/role/update",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"role",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "角色管理-删除角色",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "2_6bcf992af54b515e33504c4fbff75a70",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\":6\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/role/delete",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"role",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "角色权限管理-查询菜单和按钮",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "2_1b57e136a907ae394a15b6bf4d21b766_pc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"roleId\":3\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/role/queryRoleMenu",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"role",
+								"queryRoleMenu"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "角色权限管理-设置菜单和按钮权限",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "2_4f915c1ec0856b15045b55235758e958_pc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"roleId\":3,\r\n    \"menuButtonIds\":{\r\n        \"menuIds\":[\r\n            1,\r\n            2,\r\n            3,\r\n            4,\r\n            5,\r\n            6,\r\n            7,\r\n            8\r\n        ],\r\n        \"buttonIds\":[\r\n            {\r\n                \"menuId\":1,\r\n                \"buttonId\":1\r\n            },\r\n            {\r\n                \"menuId\":1,\r\n                \"buttonId\":1\r\n            },\r\n            {\r\n                \"menuId\":1,\r\n                \"buttonId\":1\r\n            },\r\n            {\r\n                \"menuId\":1,\r\n                \"buttonId\":1\r\n            },\r\n            {\r\n                \"menuId\":1,\r\n                \"buttonId\":1\r\n            },\r\n            {\r\n                \"menuId\":1,\r\n                \"buttonId\":1\r\n            },\r\n            {\r\n                \"menuId\":1,\r\n                \"buttonId\":1\r\n            },\r\n            {\r\n                \"menuId\":1,\r\n                \"buttonId\":1\r\n            }\r\n        ]\r\n    }\r\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/role/roleBindMenus",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"role",
+								"roleBindMenus"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "考勤规则管理",
+			"item": [
+				{
+					"name": "考勤规则-查询考勤规则",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "2_9eaec80376d0848f6944cf5a23e73155",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/checkIn/query",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"checkIn",
+								"query"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "考勤规则-新增考勤规则",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "2_9eaec80376d0848f6944cf5a23e73155",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"checkType\":0,\n\t\"checkName\":\"星期二\",\n\t\"checkCode\":\"10001\",\n\t\"lateBackTime\":\"23:30\",\n\t\"notBackTime\":\"23:30\",\n\t\"notOutTime\":48,\n\t\"holidayStart\":\"2019-11*-11 00:00:00\",\n\t\"holidayEnd\":\"2019-11-11 23:59:59\",\n\t\"sort\":1\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/checkIn/add",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"checkIn",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "考勤规则-修改考勤规则",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "2_9eaec80376d0848f6944cf5a23e73155",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\":5,\n\t\"checkType\":0,\n\t\"checkName\":\"端午节11\",\n\t\"checkCode\":\"10003\",\n\t\"lateBackTime\":\"23:30\",\n\t\"notBackTime\":\"23:30\",\n\t\"notOutTime\":24,\n\t\"holidayStart\":\"2019-11*-11 00:00:00\",\n\t\"holidayEnd\":\"2019-11-11 23:59:59\",\n\t\"sort\":111\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/checkIn/update",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"checkIn",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "考勤规则-删除考勤规则",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "1_cc97847afc6ff323b31ed06e76f2cbe1",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\":5\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/checkIn/delete",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"checkIn",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "楼栋管理",
+			"item": [
+				{
+					"name": "楼栋管理-查询楼栋",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "2_d3d30fbdcd2b0f101b3bc339128d7487",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\":\"1栋\"\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/DormBuilding/queryDormBuild",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"DormBuilding",
+								"queryDormBuild"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "楼栋管理-通过楼栋查询楼层",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "2_d3d30fbdcd2b0f101b3bc339128d7487",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\":1\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/DormBuilding/selectFloorByBuild",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"DormBuilding",
+								"selectFloorByBuild"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "楼栋管理-通过楼栋ID和楼层查找宿舍",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "2_d3d30fbdcd2b0f101b3bc339128d7487",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\":1,\n\t\"floorNum\":1\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/DormBuilding/selectDormByBuildFloor",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"DormBuilding",
+								"selectDormByBuildFloor"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "报表管理",
+			"item": [
+				{
+					"name": "报表管理-长时间未出报表",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "2_7eb021718bf99a3caea2340ac3980a39",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"notOutType\":\"\",\r\n    \"orgId\":1,\r\n    \"keyWord\":\"-8\",\r\n    \"startTime\":\"2019-12-01 00:00:00\",\r\n    \"endTime\":\"2020-01-02 00:00:00\"\r\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/report/longTimeNoOutReport",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"report",
+								"longTimeNoOutReport"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "报表管理-查询原始报表",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "2_7aae59ea00902ec10410652bf272d5e0_mobile",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"keyWord\":\"\",\"startTime\":\"2020-01-01 00:00:00\",\"endTime\":\"2020-01-31 00:00:00\",\"page\":100,\"rows\":15,\"orgId\":\"\"}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/report/faceFlowInfo",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"report",
+								"faceFlowInfo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "报表管理-连续进出报表",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "2_4774213e8ddd2aef8c82f6da36046dcb",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"keyWord\":\"li\"\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/report/ContinuityInOutReport",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"report",
+								"ContinuityInOutReport"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "报表管理-晚归报表（分组）",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "2_4774213e8ddd2aef8c82f6da36046dcb",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"keyWord\":\"refuse\"\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/report/lateReturnReport",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"report",
+								"lateReturnReport"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "报表管理-晚归报表（详情）",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "2_b5044afd363ef5cd6ff4176a455135b6",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userId\":2,\n\t\"startTime\":\"2019-12-09\",\n\t\"endTime\":\"2019-12-28\"\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/report/lateReturnReportDetail",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"report",
+								"lateReturnReportDetail"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "报表管理-未归报表（分组）",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "2_63e3abdb5f4943aed2f837d9c679b3e6_mobile",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"keyWord\":\"refuse\",\n\t\"endTime\":\"2020-05-31\",\n\t\"startTime\":\"2019-04-01\"\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/report/notReturnReport",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"report",
+								"notReturnReport"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "报表管理-未归报表（详情）",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "2_b5044afd363ef5cd6ff4176a455135b6",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userId\":2,\n\t\"startTime\":\"2019-12-12\",\n\t\"endTime\":\"2019-12-12\"\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/report/notReturnReportDetail",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"report",
+								"notReturnReportDetail"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "报表管理 - 异常汇总报表",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "2_9c08f03b445763462d623f0998c6c6d2_pc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"startTime\":\"\",\n\t\"endTime\":\"\"\t\n}"
+						},
+						"url": {
+							"raw": "{{dorm}}/report/collectReport",
+							"host": [
+								"{{dorm}}"
+							],
+							"path": [
+								"report",
+								"collectReport"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "报表管理 - 晚归报表",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "2_01a06e8b4460f2c979b337af8a39740c_mobile",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"keyWord\":\"refuse\",\n\t\"startTime\":\"2020-01-02\",\n\t\"endTime\":\"2020-04-03\"\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/report/lateReturnReportList",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"report",
+								"lateReturnReportList"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "报表管理 - 未归报表",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "2_01a06e8b4460f2c979b337af8a39740c_mobile",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"keyWord\":\"refuse\",\n\t\"startTime\":\"2020-01-02\",\n\t\"endTime\":\"2020-04-03\"\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/report/noReturnReportList",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"report",
+								"noReturnReportList"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "绩效考核",
+			"item": [
+				{
+					"name": "绩效考核 - 登录绩效",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "2_bfbaeefbb2e0b2a764b0680b43395aec_mobile",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"keyWord\":\"refuse\"\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/performance/loginStatis",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"performance",
+								"loginStatis"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "绩效考核 - 教职工查寝绩效（分组）",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "2_a20021644c2935d478fb9b146a3f86a1",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"startTime\":\"2019-12-10 00:00:00\",\n\t\"endTime\":\"2019-12-31 23:59:59\"\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/performance/checkDormStatis",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"performance",
+								"checkDormStatis"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "绩效考核 - 教职工查寝绩效（详情）",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "2_a20021644c2935d478fb9b146a3f86a1",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userId\":8,\n\t\"startTime\":\"2019-12-10 00:00:00\",\n\t\"endTime\":\"2019-12-31 23:59:59\"\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/performance/checkDormStatisDetail",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"performance",
+								"checkDormStatisDetail"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "设备用户",
+			"item": [
+				{
+					"name": "设备用户 - 通过组织机构或指定人员进行对应楼栋撤控布控操作",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "2_e2135b7fb5c0d3b572f126783a320d57_pc",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"buildIds\":[1,2],\"userIds\":[4],\"organId\":\"\",\"surveyType\":1}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/deviceUser/surveyByOrgan",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"deviceUser",
+								"surveyByOrgan"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "设备用户 - 指定楼栋进行绑定楼栋的人员撤控布控操作",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "2_67e7eff79e50f683852960e5843d2ad8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"buildIds\":[1],\n\t\"surveyType\":1\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/deviceUser/surveyByBuild",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"deviceUser",
+								"surveyByBuild"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "设备用户 - 下发失败人员重新下发",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "2_69f8249bf0441a7a8bbcc8fbacc86a77",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userIds\":[2]\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/deviceUser/resendSurvey",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"deviceUser",
+								"resendSurvey"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "移动端",
+			"item": [
+				{
+					"name": "登录管理 - 移动端登录",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"account\":\"refuse\",\r\n\t\"password\":\"admin123\"\r\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/mobile/home/login",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"mobile",
+								"home",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "登录管理 - 移动端注销登录",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "2_235ef764a76c8f4c8089adb71c7a004a_mobile",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/mobile/home/logout",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"mobile",
+								"home",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "移动端 - 首页查询在寝外出人员状态",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "2_bc6f576357f234e893a0afd90b13353d_pc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/mobile/home/dormStatus",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"mobile",
+								"home",
+								"dormStatus"
+							]
+						},
+						"description": "总人数，在寝，外出，长时间外出，晚归，未归，无记录人员人数"
+					},
+					"response": []
+				},
+				{
+					"name": "移动端 - 查询当前用户绑定的所有组织机构",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "2_bc6f576357f234e893a0afd90b13353d_pc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/mobile/home/selectOrgans",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"mobile",
+								"home",
+								"selectOrgans"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "移动端 - 按照学院分组统计异常人数",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "2_bc6f576357f234e893a0afd90b13353d_pc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"startTime\":\"2019-11-11\",\n\t\"endTime\":\"2019-12-25\"\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/mobile/home/collegeReportByOrg",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"mobile",
+								"home",
+								"collegeReportByOrg"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "移动端 - 按照班级分组统计异常人数",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "2_65f97cf241c48c095d3a8f0f5e19befe_pc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"startTime\":\"2019-12-1\",\n\t\"endTime\":\"2020-01-31\",\n\t\"reportType\":2, \n\t\"orgId\":4\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/mobile/home/classReportByOrg",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"mobile",
+								"home",
+								"classReportByOrg"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "移动端 - 按人员分组，查询人员异常次数",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "2_8a217aa8fb557468c9b8f4a11f34b842_pc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"startTime\":\"2019-10-11\",\n\t\"endTime\":\"2020-12-25\",\n\t\"reportType\":2, \n\t\"orgId\":4\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/mobile/home/personReportInfo",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"mobile",
+								"home",
+								"personReportInfo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "移动端 - 通过人员查询，时间段内具体异常信息",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "2_8a217aa8fb557468c9b8f4a11f34b842_pc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"startTime\":\"2019-11-11\",\n\t\"endTime\":\"2019-12-25\",\n\t\"reportType\":1, \n\t\"userId\":2\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/mobile/home/personReportDetail",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"mobile",
+								"home",
+								"personReportDetail"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "移动端 - 查询人员指定日期的通行流水",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "2_97956c63fcb539aada81cfe62e026feb_pc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"stuId\":2,\n\t\"reportDate\":\"2019-12-16\"\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/mobile/function/faceGateFlow",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"mobile",
+								"function",
+								"faceGateFlow"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "移动端 - 学生视图，查看学生异常次数和请假天数",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "2_8966bae7be2668ca353af9d70913657e_pc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"startTime\":\"2019-12-18\",\n\t\"endTime\":\"2019-12-22\"\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/mobile/home/personReportStatis",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"mobile",
+								"home",
+								"personReportStatis"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "登陆管理 - 登陆之后查看菜单和个人信息",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "2_2cc15e51a86b9b2aa133eca44790c878_pc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{dormSafety}}/mobile/home/infoByUser",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"mobile",
+								"home",
+								"infoByUser"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "首页",
+			"item": [
+				{
+					"name": "PC首页 - 总人数，在寝人数，外出人数， 无记录人员，此刻请假人数，待审批访客人数，待审批头像人数，长时间未出人数",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "2_e3e59478403c20c6395f53d8aada30fc_pc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/home/dormStatus",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"home",
+								"dormStatus"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "不在寝学生数量，按学院占比图",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "2_e3e59478403c20c6395f53d8aada30fc_pc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/home/outDormProportion",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"home",
+								"outDormProportion"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "时间段内晚归异常和未归异常的占比",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "2_e3e59478403c20c6395f53d8aada30fc_pc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"startTime\":\"2019-12-09\",\n\t\"endTime\":\"2019-12-12\"\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/home/reportProportion",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"home",
+								"reportProportion"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PC首页 - 进出流量时间段统计图",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "2_ddf1b23df2f1c72eabe66e6a24549d0e_pc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/home/inOutFlowStatis",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"home",
+								"inOutFlowStatis"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PC首页 - 晚归异常占比（学院，年级和班级占比）",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "2_1dd1d686b75cb98f7ba8749a0258cff4_pc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"startTime\":\"2019-12-25\",\n\t\"endTime\":\"2019-12-25\",\n\t\"organId\":7\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/home/lateReturnProportion",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"home",
+								"lateReturnProportion"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PC首页 - 未归异常占比（学院，年级和班级占比）",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "2_1dd1d686b75cb98f7ba8749a0258cff4_pc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"startTime\":\"2019-12-25\",\n\t\"endTime\":\"2019-12-25\",\n\t\"organId\":7\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/home/noReturnProportion",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"home",
+								"noReturnProportion"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PC首页 - 晚归异常占比（按年级占比）",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "2_47a4360c01e99a95d43b6105ab6bb15c_pc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"startTime\":\"2019-12-25\",\n\t\"endTime\":\"2019-12-26\"\n}"
+						},
+						"url": {
+							"raw": "{{dorm}}/home/lateReturnGradeProportion",
+							"host": [
+								"{{dorm}}"
+							],
+							"path": [
+								"home",
+								"lateReturnGradeProportion"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PC首页 - 未归异常占比（按年级占比）",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "2_1dd1d686b75cb98f7ba8749a0258cff4_pc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"startTime\":\"2019-12-25\",\n\t\"endTime\":\"2019-12-26\"\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/home/noReturnGradeProportion",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"home",
+								"noReturnGradeProportion"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "字典管理",
+			"item": [
+				{
+					"name": "新增字典",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "2_c97b8aa78349cd7311cce9c9810c7e39_pc",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"dictCode\":\"1001\",\n\t\"dictName\":\"字典1\",\n\t\"dictSort\":1\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/dict/addDict",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"dict",
+								"addDict"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "修改字典",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "2_c97b8aa78349cd7311cce9c9810c7e39_pc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"dictId\":1,\n\t\"dictCode\":\"1001\",\n\t\"dictName\":\"字典1\",\n\t\"dictSort\":1\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/dict/uptDict",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"dict",
+								"uptDict"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "删除字典",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "2_c97b8aa78349cd7311cce9c9810c7e39_pc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"dictId\":2\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/dict/delDict",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"dict",
+								"delDict"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "新增字典详情",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "2_c97b8aa78349cd7311cce9c9810c7e39_pc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"dictId\":2,\n\t\"dictItemName\":\"详情18\",\n\t\"dictItemCode\":\"详情CODE18\",\n\t\"dictItemSort\":10\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/dict/addDictItem",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"dict",
+								"addDictItem"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "修改字典详情",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "2_c97b8aa78349cd7311cce9c9810c7e39_pc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"dictItemId\":1,\n\t\"dictItemName\":\"详情1\",\n\t\"dictItemCode\":\"详情CODE1\",\n\t\"dictItemSort\":120\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/dict/uptDictItem",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"dict",
+								"uptDictItem"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "删除字典详情",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "2_c97b8aa78349cd7311cce9c9810c7e39_pc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"dictItemId\":30\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/dict/delDictItem",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"dict",
+								"delDictItem"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "查询字典",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "2_c97b8aa78349cd7311cce9c9810c7e39_pc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/dict/queryDict",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"dict",
+								"queryDict"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "查询字典详情（通过字典ID或名称）",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "token",
+								"type": "text",
+								"value": "2_5ba40d2a5b742be01555c4620f0a96c4_pc"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"dictId\":2,\n\t\"dictName\":\"字典\"\n}"
+						},
+						"url": {
+							"raw": "{{dorm}}/dict/queryDictItem",
+							"host": [
+								"{{dorm}}"
+							],
+							"path": [
+								"dict",
+								"queryDictItem"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "大华接口",
+			"item": [
+				{
+					"name": "删除人员（貌似无效）",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "2_49b13a34d13d2bc3a23b2cb325e88faf_pc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "codes",
+									"value": "[\"Refuse123456\"]",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{dormSafety}}/DH/DeletePerson",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"DH",
+								"DeletePerson"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "U8000删除人员",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "token=780cf1e0085741939ef5356556b81929",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"codes\":[\"20190114\"]\n}"
+						},
+						"url": {
+							"raw": "http://115.223.19.233/pims/third/person",
+							"protocol": "http",
+							"host": [
+								"115",
+								"223",
+								"19",
+								"233"
+							],
+							"path": [
+								"pims",
+								"third",
+								"person"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "U8000布控人员",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Cookie",
+								"value": "JSESSIONID=636972042564F947376441F073B8160D;token=596102b9cf894e54bc44f4324718374b",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"codes\":[\"tzh123456\"],\"doorGroupIds\":[\"81\"]}"
+						},
+						"url": {
+							"raw": "http://115.223.19.233/pims/third/person/survey",
+							"protocol": "http",
+							"host": [
+								"115",
+								"223",
+								"19",
+								"233"
+							],
+							"path": [
+								"pims",
+								"third",
+								"person",
+								"survey"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "U8000删除设备组",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "2_e2135b7fb5c0d3b572f126783a320d57_pc",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"groupIds\":[100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123]\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/DH/DeleteDoor",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"DH",
+								"DeleteDoor"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "获取MQ的密码（还需要解密）",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Cookie",
+								"value": "JSESSIONID=636972042564F947376441F073B8160D;token=32e1e757904c4ac1901bc227bf5ad6dc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \r\n}\r\n"
+						},
+						"url": {
+							"raw": "http://115.223.19.233/admin/API/BRM/Config/GetMqConfig",
+							"protocol": "http",
+							"host": [
+								"115",
+								"223",
+								"19",
+								"233"
+							],
+							"path": [
+								"admin",
+								"API",
+								"BRM",
+								"Config",
+								"GetMqConfig"
+							]
+						},
+						"description": "AES解密时设置字符集为utf-8,模式为ECB，填充为Pkcs5Padding，编码为Hex，才能解密成功"
+					},
+					"response": []
+				},
+				{
+					"name": "U8000-疫情防控-查询人员",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "JSESSIONID=636972042564F947376441F073B8160D;token=BF1190C54799212F7643B1976D5425DA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://115.223.19.244:5058/pims/persons?param=epi00002&roleId=student001",
+							"protocol": "http",
+							"host": [
+								"115",
+								"223",
+								"19",
+								"244"
+							],
+							"port": "5058",
+							"path": [
+								"pims",
+								"persons"
+							],
+							"query": [
+								{
+									"key": "param",
+									"value": "epi00002"
+								},
+								{
+									"key": "roleId",
+									"value": "student001"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "移动端视图控制器",
+			"item": [
+				{
+					"name": "新增视图",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "2_7b6a5b5228dfd09ae44cfedb15670a7a_pc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"viewName\":\"学生视图11232424\",\n\t\"viewPathUrl\":\"/path/student\",\n\t\"viewPicUrl\":\"baidu.com\"\n}\n"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/mobile/function/addMobileView",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"mobile",
+								"function",
+								"addMobileView"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "修改视图",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "2_7b6a5b5228dfd09ae44cfedb15670a7a_pc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"viewId\":1,\n\t\"viewName\":\"学生视图1221\",\n\t\"viewPathUrl\":\"/path/student\",\n\t\"viewPicUrl\":\"baidu.com\"\n}\n"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/mobile/function/uptMobileView",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"mobile",
+								"function",
+								"uptMobileView"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "删除视图",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "2_7b6a5b5228dfd09ae44cfedb15670a7a_pc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"viewId\":1\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/mobile/function/delMobileView",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"mobile",
+								"function",
+								"delMobileView"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "查询视图",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "token",
+								"value": "2_2cc15e51a86b9b2aa133eca44790c878_pc",
+								"type": "text"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{dormSafety}}/mobile/function/queryView",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"mobile",
+								"function",
+								"queryView"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "角色绑定视图",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "2_2cc15e51a86b9b2aa133eca44790c878_pc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"viewId\":1,\n\t\"roleId\":2\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/mobile/function/roleBindView",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"mobile",
+								"function",
+								"roleBindView"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "疫情防控",
+			"item": [
+				{
+					"name": "疫情上报详情 - 查询",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "2_f3b3b49b42e46a08f95c51edf4a41390_mobile",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"startTime\":\"2020-03-02 17:12:33\",\n\t\"endTime\":\"2020-03-02 17:12:33\",\n\t\"organId\":1,\n\t\"gender\":1,\n\t\"eventType\":1,\n\t\"keyWord\":\"refuse\"\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/epi/queryEpiReport",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"epi",
+								"queryEpiReport"
+							]
+						},
+						"description": "organId: 组织机构ID\ngender\t性别： 0=所有，1=男，2=女\neventType\t//筛选事件类型： 1=聚会，2=发烧咳嗽，3=疫区归来人员，4=隐藏旅行史，5=其他\nkeyWord\t模糊查询举报人姓名，学号和疑似人员姓名和地址"
+					},
+					"response": []
+				},
+				{
+					"name": "每日健康上报 - 查询",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "2_ed8fb15b061ba8d60c7d907104033404_pc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"reportDate\":\"2020-03-02\",\n\t\"orgId\": 4,\n\t\"keyWord\":\"refuse\",\n\t\"sick\":1,\n\t\"gender\":1,\n\t\"reportFlag\":1\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/epi/queryEpiHealth",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"epi",
+								"queryEpiHealth"
+							]
+						},
+						"description": "reportDate 上报日期 yyyy-MM-dd\norgId 组织机构ID\nkeyWord 姓名或学号\nsick  有无疑似症状  0=无， 1=有\ngender\t性别： 0=所有，1=男，2=女\nreportFlag\t是否上报 0=未上报，1=已上报，2或者其他值查所有"
+					},
+					"response": []
+				},
+				{
+					"name": "近况上报 - 查询",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "2_f3b3b49b42e46a08f95c51edf4a41390_mobile",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"startTime\":\"2020-03-02 00:00:00\",\n\t\"endTime\":\"2020-03-05 00:00:00\",\n\t\"gender\":0,\n\t\"keyWord\":\"refuse\",\n\t\"reportFlag\":1,\n\t\"status\":6\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/epi/queryEpiNearly",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"epi",
+								"queryEpiNearly"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "疫情上报 - 提交",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "token",
+								"type": "text",
+								"value": "2_f3b3b49b42e46a08f95c51edf4a41390_mobile"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\":\"李四\",\n\t\"address\":\"江西省九江市柴桑区柴桑国际中心B栋417B\",\n\t\"localePicture\":\"http://q5oqwa569.bkt.clouddn.com/GalenoWu.jpg\",\n\t\"eventType\":3\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/epi/commitEpiReport",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"epi",
+								"commitEpiReport"
+							]
+						},
+						"description": "name 疑似人员姓名\naddress 疫情上报 - 出现地点\nlocalePicture 疫情上报 - 上传现场照片\neventType 疑似事件类型：1=聚会，2=发烧咳嗽，3=疫区归来人员，4=隐藏旅行史，5=其他"
+					},
+					"response": []
+				},
+				{
+					"name": "每日健康上报 - 提交",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "2_f3b3b49b42e46a08f95c51edf4a41390_mobile",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userName\":\"refuse\",\n\t\"address\":\"江西省九江市柴桑区柴桑国际中心B栋417A\",\n\t\"phone\": \"18279286395\",\n\t\"temperature\":32.1,\n\t\"sick\":0,\n\t\"familySick\":0,\n\t\"aroundSick\":0,\n\t\"inOut\":1,\n\t\"touchSick\":0,\n\t\"touchEpi\":0,\n\t\"outAddress\":\"郊外\",\n\t\"outVehicle\":1,\n\t\"vehicleNum\":\"钓鱼去了\"\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/epi/commitEpiHealth",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"epi",
+								"commitEpiHealth"
+							]
+						},
+						"description": "userName 用户名称 必填\naddress 上报地址\t\t 必填\nphone  联系电话\t\t 必填\ntemperature 体温 格式位00.0\t\t 必填\nsick 是否有发烧，咳嗽，腹泻和呼吸急促等症状：0=无，1=有\t\t 必填\nfamilySick  家庭成员是否有疑似感染症状：0=无，1=有\t\t 必填\naroundSick 同学/同事会否有疑似感染症状：0=无，1=有\t\t 必填\nout 今日是否外出：0=无，1=有\t\t 必填\ntouchSick 是否接触发烧，疑似或确诊人员：0=无，1=有\t\t 必填\ntouchEpi 接触人员是否来自疫区：0=否，1=是\t\t 必填\noutAddress\t外出地址\t\t 必填\noutVehicle  外出交通工具：0=步行，1=自驾，2=公共交通，3=出租车\t\t 必填\nvehicleNum 交通车次： 车牌号或者备注信息吧"
+					},
+					"response": []
+				},
+				{
+					"name": "近况上报 - 提交",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "2_f3b3b49b42e46a08f95c51edf4a41390_mobile",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"touchEpiArea\":0,\n\t\"touchSick\":0,\n\t\"touchConf\":0,\n\t\"touchSuspect\":0,\n\t\"status\":0,\n\t\"activeArea\":\"呆在家\"\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/epi/commitEpiNearly",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"epi",
+								"commitEpiNearly"
+							]
+						},
+						"description": "touchEpiArea 近14天有无接触疫区人员：0=无，1=有  必填\ntouchSick  有无接触发烧咳嗽等症状人员： 0=无，1=有  必填\ntouchConf 有无接触确诊病例：0=无，1=有  必填\ntouchSuspect   有无接触医务部嗯指定的疑似人员：0=无，1=有  必填\nstatus  目前状态：0=自行隔离，1=定点隔离，2=疑似，3=确诊，4=响应国家号召，5=其他  必填\nactiveArea  近期常在区域  必填"
+					},
+					"response": []
+				},
+				{
+					"name": "疫情防控 - 校园疫情提交报告 - 查询",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "2_6460c4dc601b2b4a8fc90288b3f5dc6e_mobile",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/epi/schoolEpiQuery",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"epi",
+								"schoolEpiQuery"
+							]
+						},
+						"description": "只允许查询当日的提交报告， data 为null时，代表当日未提交，此时进入新增模式， data不为null时，进入编辑模式"
+					},
+					"response": []
+				},
+				{
+					"name": "疫情防控 - 校园疫情提交报告 - 提交",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "2_6460c4dc601b2b4a8fc90288b3f5dc6e_mobile",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"epidemicNew\":10,\n\t\"epidemicAll\":500,\n\t\"imagineNew\":5,\n\t\"imagineAll\":50,\n\t\"quarantineNew\":5,\n\t\"quarantineAll\":50,\n\t\"quarantineCancelNew\": 10,\n\t\"quarantineCancelAll\": 50,\n\t\"deathAll\":2,\n\t\"id\":1\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/epi/schoolEpiReport",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"epi",
+								"schoolEpiReport"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "设置晨检-午检-晚检规则 - 新增",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "2_0bb30e10c3538210204e4c55f03c582b_mobile",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"type\":2,\n\t\"startTime\":\"12:00\",\n\t\"endTime\":\"14:00\"\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/epiCheck/addEpiCheckTimeBucket",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"epiCheck",
+								"addEpiCheckTimeBucket"
+							]
+						},
+						"description": "type 检查类型：1=晨检，2=午检，3=晚检，4=其他\nname 可有可无，设置的话不生效，name是基于type自动生成的；\nstartTime 非空 格式为： HH:mm\nendTime 非空 格式为： HH:mm"
+					},
+					"response": []
+				},
+				{
+					"name": "设置晨检-午检-晚检规则 - 修改",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "2_0bb30e10c3538210204e4c55f03c582b_mobile",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"type\":1,\n\t\"startTime\":\"06:00\",\n\t\"endTime\":\"08:00\",\n\t\"id\":1\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/epiCheck/uptEpiCheckTimeBucket",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"epiCheck",
+								"uptEpiCheckTimeBucket"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "设置晨检-午检-晚检规则 - 删除",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "2_9954c74f40a3bed2a46c47bc547000f3_mobile",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\":1\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/epiCheck/delEpiCheckTimeBucket",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"epiCheck",
+								"delEpiCheckTimeBucket"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "设置晨检-午检-晚检规则 - 查询",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "token",
+								"value": "2_9954c74f40a3bed2a46c47bc547000f3_mobile",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{dormSafety}}/epiCheck/queryEpiCheckTimeBucket",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"epiCheck",
+								"queryEpiCheckTimeBucket"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "疫情动态： 现有确诊，新增确诊，累计确诊，现有疑似，新增疑似，累计死亡",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "2_cb2acdb94d139e3a94e60ce769a25f2c_mobile",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{dormSafety}}/epiCheck/epidemicDynamic",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"epiCheck",
+								"epidemicDynamic"
+							]
+						},
+						"description": "Response\n\t\"epidemic_new\": 新增确诊\n    \"imagine_all\": 现有疑似\n    \"death_all\": 累计死亡\n    \"epidemic_count\": 累计确诊\n    \"epidemic_all\": 现有确诊\n    \"imagine_new\": 新增疑似"
+					},
+					"response": []
+				},
+				{
+					"name": "疫情动态： 体温异常，正常人数，未检人数，总人数（学生）， 最新更新时间",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "token",
+								"type": "text",
+								"value": "2_cb2acdb94d139e3a94e60ce769a25f2c_mobile"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"type\":1\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/epiCheck/epidemicDynamicData",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"epiCheck",
+								"epidemicDynamicData"
+							]
+						},
+						"description": "Requery\n\t\ttype 检查类型：1=晨检，2=午检，3=晚检，4=其他\n\nResponse\n\t\"notThrowCount\": 未检人数\n    \"normalCount\": 正常人数\n    \"updateTime\": 最新更新时间\n    \"totalCount\": 总人数（学生）\n    \"excepCount\": 体温异常人数"
+					},
+					"response": []
+				},
+				{
+					"name": "疫情发展趋势",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "2_ed9007eea1280b21786234d5a2aaefce_mobile",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"type\":1\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/epiCheck/epidemicTrend",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"epiCheck",
+								"epidemicTrend"
+							]
+						},
+						"description": "Request\n\ttype 检查类型：1=晨检，2=午检，3=晚检，4=其他\n\nResponse\n\t \"date\": \"2020-03-05\",  日期\n    \"abnormalNewCount\": 0,\t体温异常人数\n    \"epidemicNewCount\": 0,\t新增确诊人数\n    \"imagineNewCount\": 0\t新增疑似人数"
+					},
+					"response": []
+				},
+				{
+					"name": "通过时间段查询每日上报数据和当前检查类型对应的温度异常人数",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "2_ed9007eea1280b21786234d5a2aaefce_mobile",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"type\":1,\n\t\"startTime\":\"2020-03-01\",\n\t\"endTime\":\"2020-03-31\"\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/epiCheck/queryEpidemicSchoolReport",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"epiCheck",
+								"queryEpidemicSchoolReport"
+							]
+						},
+						"description": "Request\n\ttype 检查类型：1=晨检，2=午检，3=晚检，4=其他\n\t\nResponse\n\t\"reportDate\": \"2020-03-13\", 上报日期\n    \"epidemicNew\": 10, 新增确诊人数\n    \"epidemicAll\": 500, 现有确诊人数\n    \"imagineCount\": 25, 疑似总数\n    \"imagineNew\": 5,\t新增疑似人数\n    \"imagineAll\": 50, 现有疑似人数\n    \"uploadTime\": \"2020-03-13 14:38:00\", 上报时间\n    \"totalCount\": 0,\t总人数\n    \"abnormalCount\": 0,\t异常体温人数\n    \"epidemicCount\": 50\t确诊总人数"
+					},
+					"response": []
+				},
+				{
+					"name": "疫情监测 - 改写三个趋势图-三个占比图",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "2_573ac09b641c870ee238a7356faa2df2_mobile",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/epiReport/studentLeaveProportion",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"epiReport",
+								"studentLeaveProportion"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "疫情防控 - 未戴口罩人员名单",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "2_ed9007eea1280b21786234d5a2aaefce_mobile",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"swipDate\": \"2020-03-20\"\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/epiReport/noMaskWeekTrend",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"epiReport",
+								"noMaskWeekTrend"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "疫情防控 - 未戴口罩人员 - 修改未戴口罩原因",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "2_c1ace69bffbdd0a1d302a37c5c7b10c8_mobile",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userId\":10010,\n\t\"swipDate\":\"2020-03-20 17:32:30\",\n\t\"maskReason\":\"口罩没得了\"\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/epiReport/uptReasonByUser",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"epiReport",
+								"uptReasonByUser"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "疫情告警 - 查询告警接收人列表",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "2_f6cdd6545485cf587e311cf4f41c9b47_mobile",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/epiReport/queryWarmPushUsers",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"epiReport",
+								"queryWarmPushUsers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "疫情告警 - 设置告警接收人（全部）",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "2_f6cdd6545485cf587e311cf4f41c9b47_mobile",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userIds\": [7,8,9,1]\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/epiReport/commitWarmPushUsers",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"epiReport",
+								"commitWarmPushUsers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "疫情告警 - 查看详情",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "2_adb1126f3c95c6b3ca051eb3522d87b3_mobile",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"type\":0,\n\t\"startTime\":\"2019-03-27 00:00:00\",\n\t\"endTime\":\"2020-03-27 23:59:59\"\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/epiReport/countEpiDetail",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"epiReport",
+								"countEpiDetail"
+							]
+						},
+						"description": "type 0=查看未戴口罩异常详情，1=查看体温异常详情\n 注意： ResponseBody 是不一致的，解析的时候注意下"
+					},
+					"response": []
+				},
+				{
+					"name": "晨检-午检实时监测： 统计数据",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "2_7adaf9e322365f8524fe8c16ade268cd_mobile",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"type\":2\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/epiCheck/realTimeDetection",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"epiCheck",
+								"realTimeDetection"
+							]
+						},
+						"description": "@RequestBody type  必填 1=晨检实时监测，2=午检实时监测\n\n@ResponseBody \n\t\t\"checkCount\": 0,  完成检测人数\n        \"normalCount\": 0, 体温正常人数\n        \"totalCount\": 241, 总人数\n        \"abnormalCount\": 0,  体温异常人数\n        \"notCheckCount\": 241 未检测人数"
+					},
+					"response": []
+				},
+				{
+					"name": "晨检-午检实时监测：宿舍检测情况",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "2_1f66021609e2ea0bcaa9dba02267664c_mobile",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"type\":1\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/epiCheck/detectionByBuild",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"epiCheck",
+								"detectionByBuild"
+							]
+						},
+						"description": "@RequestgBody type 必填  1=晨检实时监测，2=午检实时监测\n\n@ResponseBody \n\t\t\t\"buildName\": \"西苑3栋\",  楼栋名称\n            \"checkTime\": \"07:00 - 10:00\",  检测时间\n            \"reportDate\": \"2020-04-07\", 检测日期\n            \"normalCount\": 0,\t体温正常人数\n            \"totalCount\": 100,  当前楼栋总人数\n            \"abnormalCount\": 0,\t当前楼栋体温异常人数\n            \"notCheckCount\": 100\t当前楼栋未检测人数"
+					},
+					"response": []
+				},
+				{
+					"name": "晨检-午检实时监测：详情人员列表",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "2_e76aba5f8dcf3a17ec03361e3e41d5c2_mobile",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"type\":1,\n\t\"status\":0,\n\t\"orgId\":4\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/epiCheck/detectionDetail",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"epiCheck",
+								"detectionDetail"
+							]
+						},
+						"description": "RequestBody： type 必填 1=晨检，2=午检\n\t\t\tstatus: 必填  0=未检测人员， 1=全部人员， 2=体温异常人员， 3=正常人员\n\t\torgId  非必填  组织机构\n\t\tbuildId  非必填 楼栋ID\n\t\tpage 分页参数\n\t\trows 分页参数\n\t\t\t\nResponseBody：  \"code\": \"student0323002\",  学号\n                \"organName\": \"学生机构\",  机构名称\n                \"checkTime\": \"07:00 - 10:00\", 检查时间\n                \"phone\": \"13000110011\",\t 电话\n                \"name\": \"student0323002\", 学生姓名\n                \"id\": 10122, 学生ID\n                \"type\": \"未检测\"  类型"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "疫情大屏",
+			"item": [
+				{
+					"name": "1.1.\t查询防疫情况接口",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"F_Sn\":\"\"\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/epiScreen/getDiseaseStatistic",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"epiScreen",
+								"getDiseaseStatistic"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "1.2.\t查询学校基本情况接口",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"F_Sn\":\"\"\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/epiScreen/getSchoolStatistic",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"epiScreen",
+								"getSchoolStatistic"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "1.3.\t根据状态查询楼栋比例分布",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"F_Sn\":\"\"\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/epiScreen/getBuildStatisticByState",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"epiScreen",
+								"getBuildStatisticByState"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "1.4.\t查询最近7日未戴口罩者情况",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"F_Sn\":\"\"\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/epiScreen/getLatestDaysNoMask",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"epiScreen",
+								"getLatestDaysNoMask"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "1.5.\t查询最近未戴口罩者人员具体情况",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"F_Sn\":\"\",\n\t\"F_Num\":2\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/epiScreen/getLatestNoMask",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"epiScreen",
+								"getLatestNoMask"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "1.6.\t查询最近7日体温异常者情况",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"F_Sn\":\"\"\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/epiScreen/getLatestDaysAbnormal",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"epiScreen",
+								"getLatestDaysAbnormal"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "1.7.\t查询最近体温异常人员具体情况",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"F_Sn\":\"\",\n\t\"F_Num\":20\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/epiScreen/getLatestAbnormal",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"epiScreen",
+								"getLatestAbnormal"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "1.8.\t热成像识别实时情况",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"F_Sn\":\"\",\n\t\"F_Num\":20\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/epiScreen/getThermalReal",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"epiScreen",
+								"getThermalReal"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "宿舍大屏",
+			"item": [
+				{
+					"name": "1.1.\t查询可绑定的楼栋信息",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"F_Sn\":\"112233\"\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/api/dataview/getUnBindGate",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"api",
+								"dataview",
+								"getUnBindGate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "1.2.\t大屏绑定楼栋信息",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"F_Sn\":\"112233\",\n\t\"F_BuildingIds\":\"1,2\"\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/api/dataview/bindBuildings",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"api",
+								"dataview",
+								"bindBuildings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "1.3.\t大屏解绑楼栋信息",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"F_Sn\":\"112233\"\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/api/dataview/UnBindBuildings",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"api",
+								"dataview",
+								"UnBindBuildings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "1.4.\t检测是否有新的版本信息",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"F_currentVersion\":\"1.1.4\"\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/api/dataview/checkAppVersion",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"api",
+								"dataview",
+								"checkAppVersion"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "1.5.\t获取楼栋学生基本外出在寝信息",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"F_BuildingIds\":\"1,2\"\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/api/dataview/getBasicDormOutInInfoGroupByBuilld",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"api",
+								"dataview",
+								"getBasicDormOutInInfoGroupByBuilld"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "1.6.\t获取访客清单",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"F_BuildingIds\":\"1,9\"\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/api/dataview/getVisitorsList",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"api",
+								"dataview",
+								"getVisitorsList"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "1.7.\t根据楼栋获取进出最近记录",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{dormSafety}}/api/dataview/getLatestInOutRecordByBuilding",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"api",
+								"dataview",
+								"getLatestInOutRecordByBuilding"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "1.8.\t根据最近24小时进出最近记录",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"F_BuildingIds\":\"1,2,3\"\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/api/dataview/getInOutNumInLatestHours",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"api",
+								"dataview",
+								"getInOutNumInLatestHours"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "1.9.\t根据设备获取考勤统计",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"F_BuildingIds\":\"1,2,9\"\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/api/dataview/getSignInfoByBuildings",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"api",
+								"dataview",
+								"getSignInfoByBuildings"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "平安归寝",
+			"item": [
+				{
+					"name": "平安归寝 - 查询未归寝核查列表",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "2_6f29a3b8477583dd37185dbf62e667ea_mobile",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"reportDate\":\"2020-04-13\",\n\t\"checkType\":2,\n\t\"buildId\":1,\n\t\"keyWord\":\"U500016\"\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/safe/querySafeReturn",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"safe",
+								"querySafeReturn"
+							]
+						},
+						"description": "RequestBody： {\n\t\"reportDate\":\"2020-04-13\",  报告日期\n\t\"checkType\":2,    核查类型： 0=未核查， 1=已核查， 2=查询所有\n\t\"buildId\":1,\t楼栋ID\n\t\"keyWord\":\"refuse\"\t关键字： 学号或姓名 模糊匹配\n}\n\nResponseBody:\n  \"checkType\": 0,\t\t\t1=已核查， 0=未核查\n    \"buildName\": \"东苑一栋\",\t楼栋名称\n    \"code\": \"refuseUsers\",    学号\n    \"orgName\": \"2018182051\",  组织机构名称\n    \"dormName\": null,  宿舍名称\n    \"userId\": 10178,  用户ID\n    \"currentLocation\": null,  当前位置\n    \"reportDate\": \"2020-04-13\",  报告日期\n    \"phone\": \"18252451265\",  联系电话\n    \"name\": \"refuseUsers\",\t姓名\n    \"noReturnTime\": 440770.23,  未归时长： 单位 /小时\n    \"id\": 374,  当前这条数据ID\n    \"noReturnReason\": null,  未归原因\n    \"outTime\": 0 外出时间  yyyy-MM-dd HH:mm:ss 格式"
+					},
+					"response": []
+				},
+				{
+					"name": "平安归寝 - 核查提交",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "2_2a50b65fccbfdf6ca0cb7fba6041ac4f_mobile",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\":242,\n\t\"noReturnReason\":\"蹦迪\",\n\t\"currentLocation\":\"酒吧\"\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/safe/commitCheck",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"safe",
+								"commitCheck"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "平安归寝 - 归寝动态",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "2_6f29a3b8477583dd37185dbf62e667ea_mobile",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{dormSafety}}/safe/returnDynamic",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"safe",
+								"returnDynamic"
+							]
+						},
+						"description": "ResponseBody\n\t  \"outDormCount\": 197,\t不在寝总人数\n        \"collegeCount\": 2, 未完成核查院系数量:\n        \"dormTotal\": 216,  住宿总人数（实际查询正常考勤总人数）\n        \"noCheckCount\": 196,\t\t未核查人数\n        \"hasCheckCount\": 1,\t已核查人数\n        \"onDormCount\": 10,  在寝总人数\n        \"lastUpdateTime\": \"2020-04-14 10:00:11\"  //最后更新时间"
+					},
+					"response": []
+				},
+				{
+					"name": "平安归寝 - 核查和未核查的学院占比",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "2_6f29a3b8477583dd37185dbf62e667ea_mobile",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"checkType\":1\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/safe/checkCollegeProportion",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"safe",
+								"checkCollegeProportion"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "平安归寝 -  工作报告  学院分布及核查比例",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "2_6f29a3b8477583dd37185dbf62e667ea_mobile",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"startTime\":\"2020-04-12\",\n\t\"endTime\":\"2020-04-13\"\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/safe/collegeProportionList",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"safe",
+								"collegeProportionList"
+							]
+						},
+						"description": "Response\n\t  \"searchTime\": \"2020-04-12 至 2020-04-13\",\t\t查询时间段\n            \"outCount\": 170,\t\t未归人数\n            \"orgName\": \"软件学院\",\t组织机构名称\n            \"proportion\": \"99.41%\",\t未核查占比\n            \"noCheckCount\": 169,\t未核查总人数\n            \"totalCount\": 183,\t总人数\n            \"orgId\": 4\t组织机构ID"
+					},
+					"response": []
+				},
+				{
+					"name": "平安归寝  工作报告 - 查看详情",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "2_6f29a3b8477583dd37185dbf62e667ea_mobile",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"startTime\":\"2020-04-12\",\n\t\"endTime\":\"2020-04-13\",\n\t\"orgId\":5\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/safe/collegeNoCheckDetail",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"safe",
+								"collegeNoCheckDetail"
+							]
+						},
+						"description": "\"checkType\": 0,\t\t核查类型： 0=未核查， 1=已核查\t\n                \"buildName\": \"东苑一栋\",\t\t楼栋名称\n                \"orgName\": \"学生机构/文法学院/2019/191452\",  组织机构名称\n                \"code\": \"19145105\",   学号\n                \"reportDate\": \"2020-04-13\",\t  考核日期\n                \"phone\": \"13603814659\",\t\t手机号码\n                \"dormName\": null,\t\t宿舍名称\n                \"name\": \"李晳宁\",   人员姓名\n                \"noReturnTime\": 313.61,\t未归时长： 单位小时\n                \"noReturnReason\": null,\t未归原因\n                \"outTime\": \"2020-03-31 16:37:32\",\t\t外出时间\n                \"currentLocation\": null\t 人员当前所在地"
+					},
+					"response": []
+				},
+				{
+					"name": "平安归寝 -一键上报",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "2_efa37ee0291b48bec022511b27cb17d4_mobile",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"reportDate\":\"2020-04-13\"\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/safe/commitReport",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"safe",
+								"commitReport"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "平安归寝 - 移动端 - 查询人员列表（正常考勤+在寝（实际不在寝））",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "2_fd115d3eec7243e5cb5227bd254d772f_mobile",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"orgId\":4\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/safe/inDormUserList",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"safe",
+								"inDormUserList"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "平安归寝 - 移动端 - 更新核查接口",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "2_fd115d3eec7243e5cb5227bd254d772f_mobile",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\":586,\n\t\"noReturnReason\":\"不想回来\",\n\t\"currentLocation\":\"在家\"\n}"
+						},
+						"url": {
+							"raw": "{{dormSafety}}/safe/updateCheckStatus",
+							"host": [
+								"{{dormSafety}}"
+							],
+							"path": [
+								"safe",
+								"updateCheckStatus"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "文件管理-上传文件",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "2_de94228e43bde873717eb8328fecec76_mobile",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": ""
+						}
+					]
+				},
+				"url": {
+					"raw": "{{dormSafety}}/file/uploadFile",
+					"host": [
+						"{{dormSafety}}"
+					],
+					"path": [
+						"file",
+						"uploadFile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "黑名单管理-上传图片压缩包",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "2_ef3e2f37f65eaf9cc59ea123ed339a8d",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": ""
+						}
+					]
+				},
+				"url": {
+					"raw": "{{dormSafety}}/file/uploadZip",
+					"host": [
+						"{{dormSafety}}"
+					],
+					"path": [
+						"file",
+						"uploadZip"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "日志管理-查询日志",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "token",
+						"value": "2_7eb021718bf99a3caea2340ac3980a39",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"keyWord\":\"refuse\"\n}"
+				},
+				"url": {
+					"raw": "{{dormSafety}}/log/query",
+					"host": [
+						"{{dormSafety}}"
+					],
+					"path": [
+						"log",
+						"query"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "推送人员至U8000",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "token",
+						"value": "2_cb5c379bde70d6383670c2c054a258d9_mobile",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"userIds\":[118]\t\n}"
+				},
+				"url": {
+					"raw": "{{dormSafety}}/user/pushPersonToDH",
+					"host": [
+						"{{dormSafety}}"
+					],
+					"path": [
+						"user",
+						"pushPersonToDH"
+					]
+				},
+				"description": "针对宿舍安全管理平台已存在但U8000平台不存在的用户，通过宿舍安全管理平台的用户id集合，下发到U8000"
+			},
+			"response": []
+		},
+		{
+			"name": "导入人员之后，通过此请求查询上传状态",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "token",
+						"value": "2_2bb12b892a8accd936aa4db70c4e9991_pc",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\n}"
+				},
+				"url": {
+					"raw": "{{dormSafety}}/user/uploadExcelStatus",
+					"host": [
+						"{{dormSafety}}"
+					],
+					"path": [
+						"user",
+						"uploadExcelStatus"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "通过文件绝对路径返回HTTP路径",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "2_be43146cba3f66b0049abbc8336794f4_mobile",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{dorm}}/file/fileHttpUrl?path=/home/hw/picture/2020-01-10/ed89fc14414e4ce1807fc5e75dea4291.jpg",
+					"host": [
+						"{{dorm}}"
+					],
+					"path": [
+						"file",
+						"fileHttpUrl"
+					],
+					"query": [
+						{
+							"key": "path",
+							"value": "/home/hw/picture/2020-01-10/ed89fc14414e4ce1807fc5e75dea4291.jpg"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "疫情防控 - 导入人员通知",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"name\":\"aaa\",\r\n        \"code\":\"123daa\",\r\n        \"id\":12\r\n    },\r\n    {\r\n        \"name\":\"aaa\",\r\n        \"code\":\"123daa\",\r\n        \"id\":13\r\n    }\r\n]"
+				},
+				"url": {
+					"raw": "{{dormSafety}}/user/uploadResult",
+					"host": [
+						"{{dormSafety}}"
+					],
+					"path": [
+						"user",
+						"uploadResult"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,197 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta lang="zh-cn">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="referrer" content="no-referrer">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="~/Content/css/framework-font.css" rel="stylesheet" />
+
+    <link href="~/Content/css/index.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Content/js/swiper-4.4.2/dist/css/swiper.min.css">
+    <script src="~/Scripts/jquery-2.1.1.min.js"></script>
+    <script src="~/Scripts/jquery.cookie-1.4.1.min.js"></script>
+    <script src="~/Content/js/md5/jquery.md5.js"></script>
+
+    <script src="~/Content/js/swiper-4.4.2/dist/js/swiper.min.js"></script>
+</head>
+
+<body>
+    <div class="self-container">
+        <div class="self-form">
+            <div class="title">智慧校园</div>
+            <div>
+                <div class="user">
+                    <img src="../../Content/img/zh@2x.png" alt="user" />
+                    <input id="txt_account" type="text" name="user" placeholder="请输入您的账号" />
+                    <div class="username errorMsg"></div>
+                </div>
+                <div class="user">
+                    <img src="../../Content/img/mima@2x.png" alt="user" />
+                    <input id="txt_password" type="password" name="password" placeholder="请输入登录密码" />
+                    <div class="errorMsg password"></div>
+                </div>
+
+                <div class="submit"><input id="login_button" type="submit" value="登录"></div>
+
+            </div>
+        </div>
+        <img class="wbk" src="../../Content/img/wbk@2x.png" oncontextmenu="return false">
+    </div>
+
+    <div class="infoPanel infoPanel_hide" id="info">
+        <div class="panel_msg">
+
+        </div>
+    </div>
+    <script type="text/javascript">
+        function IEVersion() {
+            let ua = navigator.userAgent
+            let isIE = ua.indexOf('compatible') > -1 && ua.indexOf('MSIE') > -1
+            let isEdge = ua.indexOf('Edge') > -1 && !isIE
+            let isIE11 = ua.indexOf('Trident') > -1 && ua.indexOf('rv:11.0') > -1
+            // console.log(isIE, isEdge, isIE11)
+            // document.write(isIE + ',' + isEdge + ',' + isIE11)
+            if (isIE) {
+                let ieVersion = parseFloat(navigator.appVersion)
+
+                console.log('ie版本', ieVersion)
+                if (ieVersion < 4) {
+                    return confirm('浏览器版本过低,部分内容无法显示,请使用IE11及以上浏览器或者谷歌内核浏览器!')
+                }
+            }
+            return false
+        }
+        function infoPanelHide() {
+            $('#info').removeClass('infoPanel_show')
+            $('#info').addClass('infoPanel_hide')
+        }
+        function infoPaneShow(msg) {
+            $('#info').removeClass('infoPanel_hide')
+            $('#info').addClass('infoPanel_show')
+            $('#info .panel_msg').html(msg)
+            setTimeout(infoPanelHide, 1500)
+        }
+        (function ($) {
+            $.login = {
+                formMessage: function (msg) {
+                    //layer.msg(content)
+
+                    infoPaneShow(msg)
+                    $("#login_button").val("登录");
+
+                },
+                loginClick: function () {
+                    var $username = $("#txt_account");
+                    var $password = $("#txt_password");
+                    var $code = $("#txt_code");
+                    if ($username.val() == "") {
+                        $username.focus();
+                        $.login.formMessage('请输入用户名/手机号/邮箱。');
+                        return false;
+                    } else if ($password.val() == "") {
+                        $password.focus();
+                        $.login.formMessage('请输入登录密码。');
+                        return false;
+                        //} else if ($code.val() == "") {
+                        //    $code.focus();
+                        //    $.login.formMessage('请输入验证码。');
+                        //    return false;
+                    } else {
+                        $("#login_button").val("loading...");
+                        sessionStorage.setItem("school_code", $("#txt_belongSchool").val());
+                        $.ajax({
+                            url: "/Login/CheckLoginType",
+                            data: { username: $.trim($username.val()), password: $.md5($.trim($password.val())), code: $.trim($code.val()), schoolCode: $("#txt_belongSchool").val() },
+                            type: "post",
+                            dataType: "json",
+
+                            success: function (data) {
+                                if (data.state == "success") {
+                                    $.login.formMessage('登录成功!');
+                                    window.setTimeout(function () {
+                                        window.location.href = "/Home/Index";
+                                    }, 500);
+                                } else {
+
+                                    if (data.message == "NoAuthorize") {
+                                        window.location.href = "/Login/NoAuthorize";
+                                    }
+                                    else {
+                                        $.login.formMessage(data.message);
+                                    }
+                                }
+                            }
+                        });
+                    }
+                },
+                init: function () {
+                    $('.wrapper').height($(window).height());
+                    $(window).resize(function (e) {
+                        $('.wrapper').height($(window).height());
+                    });
+                    $("#switchCode").click(function () {
+
+                        $("#switchCode").attr("src", "/Login/GetAuthCode?time=" + Math.random());
+                    });
+                    var login_error = top.$.cookie('zhxy_login_error');
+                    if (login_error != null) {
+                        switch (login_error) {
+                            case "overdue":
+                                $.login.formMessage("系统登录已超时,请重新登录");
+                                break;
+                            case "OnLine":
+                                $.login.formMessage("您的帐号已在其它地方登录,请重新登录");
+                                break;
+                            case "-1":
+                                $.login.formMessage("系统未知错误,请重新登录");
+                                break;
+                        }
+                        top.$.cookie('zhxy_login_error', '', { path: "/", expires: -1 });
+                    }
+                    $("#login_button").click(function () {
+                        $.login.loginClick();
+                    });
+                    document.onkeydown = function (e) {
+                        if (!e) e = window.event;
+                        if ((e.keyCode || e.which) == 13) {
+                            document.getElementById("login_button").focus();
+                            document.getElementById("login_button").click();
+                        }
+                    }
+                }
+            };
+            $(function () {
+                let ieAllow = IEVersion()
+                if(!ieAllow){
+                    return
+                }
+                $.login.init();
+
+                $("#txt_belongSchool").on("change", function () {
+                    var schoolCode = $("#txt_belongSchool").val();
+                    $.cookie("school_code", schoolCode, { expires: 7, path: '/' });
+                    top.$.cookie("school_code", schoolCode, { expires: 7, path: '/' });
+
+                });
+
+                var mySwiper = new Swiper('.swiper-container', {
+                    direction: 'horizontal', // 垂直切换选项
+                    loop: true, // 循环模式选项
+                    autoplay: {
+                        delay: 3000,
+                    },
+                    navigation: {
+                        nextEl: '.swiper-button-next',
+                        prevEl: '.swiper-button-prev',
+                    },
+                })
+            });
+
+        })(jQuery);
+    </script>
+</body>
+
+</html>
